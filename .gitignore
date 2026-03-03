@@ -1,0 +1,20 @@
+# Ignore everything
+*
+
+# But not these files/directories (which we want to track)
+!.gitignore
+!README.md
+!docs/
+!docs/**
+!Core/
+!Core/Src/
+!Core/Src/main.c
+!Core/Inc/
+!Core/Inc/main.h
+!Digital_Servo.ioc
+
+# Ignore everything else in Core/
+Core/Src/*
+!Core/Src/main.c
+Core/Inc/*
+!Core/Inc/main.h
