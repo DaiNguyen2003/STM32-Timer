@@ -16,4 +16,4 @@ Nối mốc GND chung cho thiết lập thử trên bàn. Với bus có hai đ�
 
 ![Luồng PC, adapter, bus RS485 và STM32](images/rs485-flow.svg)
 
-Nếu không có ACK, đo UART phía MCU và kiểm tra PA8 xuống thấp sau khi gửi, địa chỉ node và CRC. Kiểm tra bus ở 115200 8N1. Servo dùng [sơ đồ nguồn và PWM riêng](../README.md#phần-cứng-và-cấu-hình).
+Nếu không có ACK, đo UART phía MCU và kiểm tra PA8 xuống thấp sau khi gửi, địa chỉ node và CRC. Kiểm tra bus ở 115200 8N1. Servo dùng [sơ đồ nguồn và PWM riêng](../README.md#phần-cứng).

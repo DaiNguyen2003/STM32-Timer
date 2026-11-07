@@ -39,7 +39,7 @@ def main():
             executable = str(args.toolchain.resolve() / executable)
         subprocess.run([executable, *map(str, options)], check=True, cwd=ROOT)
 
-    includes = [build, ROOT / "firmware", ROOT, ROOT / "Core/Inc",
+    includes = [build, ROOT / "Core/Inc",
                 hal / "Inc", cmsis / "Include", device / "Include"]
     hal_sources = ["stm32f1xx_hal", *(f"stm32f1xx_hal_{module}" for module in MODULES)]
     elf = build / "firmware.elf"

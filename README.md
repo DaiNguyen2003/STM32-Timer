@@ -1,10 +1,12 @@
-# STM32 Timer · Servo PWM và điều khiển RS485
+# STM32 Timer · Điều khiển servo PWM qua RS485
+
+## Tổng quan
 
 Demo **TIM2 PWM trên STM32F103C8T6**. Servo khởi động ở xung trung tâm 1500 µs; có thể gửi lệnh RS485 từ PC để thay đổi độ rộng xung, điều khiển LED PC13 và đọc trạng thái.
 
-![Đấu nối servo với PA0, nguồn riêng và GND chung](docs/images/servo-wiring.svg)
+## Phần cứng
 
-## Phần cứng và cấu hình
+![Đấu nối servo với PA0, nguồn riêng và GND chung](docs/images/servo-wiring.svg)
 
 | Tín hiệu | Chân | Cấu hình |
 | --- | --- | --- |
@@ -51,9 +53,21 @@ python tools/rs485_cli.py status --port COM5
 
 ![Luồng lệnh và phản hồi từ PC qua bus RS485](docs/images/rs485-flow.svg)
 
-## Tài liệu và mã nguồn
+## Cấu trúc dự án
 
-- [Luồng chương trình](docs/CODE_GUIDE.md) và [hướng dẫn firmware](docs/RS485_STM32_GUIDE.md).
-- [Định dạng khung, CRC và bảng lệnh](docs/RS485_PROTOCOL_UART_DETAIL.md).
-- [Dùng CLI Python](docs/RS485_PYTHON_GUIDE.md).
-- [Cấu hình CubeMX tham khảo](Digital_Servo.ioc) cho PWM và USART1. Build CLI dùng cấu hình chân trong mã nguồn.
+| Đường dẫn | Vai trò |
+| --- | --- |
+| [`Core/Inc/`](Core/Inc/) | Header ứng dụng và thư viện. |
+| [`Core/Src/`](Core/Src/) | Điều khiển PWM, parser khung và driver RS485. |
+| [`firmware/`](firmware/) | Khởi tạo phần cứng, SysTick và linker script. |
+| [`docs/`](docs/) | Hướng dẫn kỹ thuật và sơ đồ SVG trong `docs/images/`. |
+| [`build.py`](build.py) | Build firmware từ mã nguồn. |
+| [`config/`](config/) | Tệp cấu hình CubeMX được theo dõi trong Git. |
+| [`tests/`](tests/) | Kiểm thử logic chạy trên máy tính. |
+| [`tools/`](tools/) | Công cụ chạy demo hoặc giao tiếp với board. |
+
+## Tài liệu
+
+- [Hướng dẫn kỹ thuật](docs/CODE_GUIDE.md).
+- [Đấu nối RS485](docs/RS485_HARDWARE_SETUP.md) và [định dạng khung](docs/RS485_PROTOCOL_UART_DETAIL.md).
+- [CLI Python](docs/RS485_PYTHON_GUIDE.md) và [cấu hình CubeMX](config/Digital_Servo.ioc).
