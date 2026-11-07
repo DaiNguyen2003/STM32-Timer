@@ -18,3 +18,16 @@ Core/Src/*
 !Core/Src/main.c
 Core/Inc/*
 !Core/Inc/main.h
+
+# Standalone firmware and RS485 sources
+!build.py
+!firmware/
+!firmware/**
+!Core/Inc/rs485*.h
+!Core/Src/rs485*.c
+!tools/
+!tools/**
+!tests/
+!tests/**
+/build/
+__pycache__/

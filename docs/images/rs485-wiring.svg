@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="531" viewBox="0 0 1080 531" role="img" aria-labelledby="title desc">
+  <title id="title">Đấu nối transceiver RS485</title>
+  <desc id="desc">PA9 / USART1_TX – DI: Dữ liệu phát; PA10 / USART1_RX – RO: Dữ liệu nhận; PA8 / GPIO output – DE và /RE: Cao: phát · Thấp: nhận; GND – GND: Mass chung; 3,3 V phù hợp – VCC: Ví dụ MAX3485</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#52657f"/>
+    </marker>
+    <style>
+      text { font-family: 'Segoe UI', Arial, sans-serif; fill: #182c47; }
+      .title { font-size: 36px; font-weight: 700; }
+      .heading { font-size: 22px; font-weight: 700; }
+      .label { font-size: 18px; font-weight: 700; }
+      .note { font-size: 16px; fill: #435a73; }
+      .edge { fill: none; stroke: #52657f; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect width="1080" height="531" rx="24" fill="#f7f9fc"/>
+  <rect x="40" y="34" width="5" height="57" rx="2.5" fill="#245cae"/>
+  <text class="title" x="62" y="58">Đấu nối transceiver RS485</text>
+  <text class="note" x="63" y="87">USART1 · Half-duplex · DE và /RE nối chung</text>
+  <rect x="40" y="112" width="320" height="336" rx="14" fill="#eaf2ff" stroke="#bccbdd"/>
+  <rect x="720" y="112" width="320" height="336" rx="14" fill="#f0ecfb" stroke="#bccbdd"/>
+  <text class="heading" x="62" y="148" text-anchor="start">STM32F103C8T6</text>
+  <text class="heading" x="742" y="148" text-anchor="start">Transceiver RS485 3,3 V</text>
+  <path d="M40 164H360M720 164H1040" stroke="#bccbdd"/>
+  <path class="edge" d="M360 193H720" marker-end="url(#arrow)"/>
+  <text class="note" x="540" y="183" text-anchor="middle">Dữ liệu phát</text>
+  <text class="label" x="340" y="199" text-anchor="end">PA9 / USART1_TX</text>
+  <text class="label" x="740" y="199" text-anchor="start">DI</text>
+  <path class="edge" d="M360 245H720" marker-start="url(#arrow)"/>
+  <text class="note" x="540" y="235" text-anchor="middle">Dữ liệu nhận</text>
+  <text class="label" x="340" y="251" text-anchor="end">PA10 / USART1_RX</text>
+  <text class="label" x="740" y="251" text-anchor="start">RO</text>
+  <path class="edge" d="M360 297H720" marker-end="url(#arrow)"/>
+  <text class="note" x="540" y="287" text-anchor="middle">Cao: phát · Thấp: nhận</text>
+  <text class="label" x="340" y="303" text-anchor="end">PA8 / GPIO output</text>
+  <text class="label" x="740" y="303" text-anchor="start">DE và /RE</text>
+  <path class="edge" d="M360 349H720"/>
+  <text class="note" x="540" y="339" text-anchor="middle">Mass chung</text>
+  <text class="label" x="340" y="355" text-anchor="end">GND</text>
+  <text class="label" x="740" y="355" text-anchor="start">GND</text>
+  <path class="edge" d="M360 401H720" marker-end="url(#arrow)"/>
+  <text class="note" x="540" y="391" text-anchor="middle">Ví dụ MAX3485</text>
+  <text class="label" x="340" y="407" text-anchor="end">3,3 V phù hợp</text>
+  <text class="label" x="740" y="407" text-anchor="start">VCC</text>
+  <rect x="40" y="465" width="1000" height="42" rx="14" fill="#eaf6f2" stroke="#bccbdd"/>
+  <text class="note" x="58" y="492" text-anchor="start">Nối A/B tới USB–RS485. Dùng điện trở đầu cuối tại hai đầu vật lý của bus.</text>
+
+</svg>

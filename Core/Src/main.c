@@ -71,6 +71,8 @@ void Servo_SetAngle(int8_t angle)
     
     uint16_t pulse = (uint16_t)(SERVO_MID_PULSE + (angle * 1000 / 60));
     __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, pulse);
+    debug_pulse = pulse;
+    debug_angle = angle;
 }
 
 void Servo_SweepTo(int8_t targetAngle, uint16_t delayMs)
@@ -121,12 +123,18 @@ int main(void)
   MX_TIM2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+  if (HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1) != HAL_OK)
+  {
+      Error_Handler();
+  }
   Servo_SetAngle(0);
   
   // Init RS485 UART
   RS485_UART_Init(&huart1);
-  HAL_UART_Receive_IT(&huart1, &rx_byte, 1);  // Start receiving
+  if (HAL_UART_Receive_IT(&huart1, &rx_byte, 1) != HAL_OK)
+  {
+      Error_Handler();
+  }
   
   // LED startup blink
   for (int i = 0; i < 3; i++) {
@@ -143,8 +151,9 @@ int main(void)
     // -------------------------- RS485 COMMAND HANDLER ----------------------------------------
     if (RS485_UART_HasNewFrame())
     {
-        RS485_Frame_t *frame = RS485_UART_GetFrame();
+        const RS485_Frame_t *frame = RS485_UART_GetFrame();
         
+        debug_last_cmd = frame->cmd;
         switch (frame->cmd)
         {
             case CMD_ON:
@@ -168,10 +177,13 @@ int main(void)
                 break;
                 
             case CMD_SERVO_PULSE:
-                if (frame->len >= 2) {
+                if (frame->len == 2U) {
                     uint16_t pulse = (frame->data[0] << 8) | frame->data[1];
-                    if (pulse >= 500 && pulse <= 2500) {
+                    if (pulse >= SERVO_MIN_PULSE && pulse <= SERVO_MAX_PULSE) {
                         __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, pulse);
+                        debug_pulse = pulse;
+                        debug_last_pulse = pulse;
+                        debug_angle = (int8_t)(((int32_t)pulse - SERVO_MID_PULSE) * 60 / 1000);
                         RS485_UART_SendAck();
                     } else {
                         RS485_UART_SendNack();
@@ -200,7 +212,6 @@ int main(void)
         RS485_UART_ClearFrameFlag();
     }
     
-    HAL_Delay(10);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -356,12 +367,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-extern UART_HandleTypeDef huart1;
-extern uint8_t rx_byte;
-extern uint8_t debug_rx_buffer[64];
-extern volatile uint8_t debug_rx_index;
-extern volatile uint32_t debug_rx_count;
-
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
     if (huart == &huart1)
@@ -373,6 +378,13 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
         
         RS485_UART_RxCallback(rx_byte);
         HAL_UART_Receive_IT(&huart1, &rx_byte, 1);  // Continue receiving
+    }
+}
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
+{
+    if (huart == &huart1 && huart->RxState == HAL_UART_STATE_READY)
+    {
+        HAL_UART_Receive_IT(huart, &rx_byte, 1);
     }
 }
 /* USER CODE END 4 */

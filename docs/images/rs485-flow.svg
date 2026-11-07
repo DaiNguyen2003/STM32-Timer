@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="326" viewBox="0 0 1080 326" role="img" aria-labelledby="title desc">
+  <title id="title">Luồng lệnh PC đến STM32 qua RS485</title>
+  <desc id="desc">PC: CLI Python, Tạo khung và CRC; Bus RS485: Adapter USB–RS485, Cặp dây A/B; STM32: USART1 và parser, Kiểm tra CRC + node; Thiết bị: Cập nhật LED / PWM, Phản hồi ACK hoặc NACK</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#52657f"/>
+    </marker>
+    <style>
+      text { font-family: 'Segoe UI', Arial, sans-serif; fill: #182c47; }
+      .title { font-size: 36px; font-weight: 700; }
+      .heading { font-size: 22px; font-weight: 700; }
+      .label { font-size: 18px; font-weight: 700; }
+      .note { font-size: 16px; fill: #435a73; }
+      .edge { fill: none; stroke: #52657f; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect width="1080" height="326" rx="24" fill="#f7f9fc"/>
+  <rect x="40" y="34" width="5" height="57" rx="2.5" fill="#245cae"/>
+  <text class="title" x="62" y="58">Luồng lệnh PC đến STM32 qua RS485</text>
+  <text class="note" x="63" y="87">115200 bit/s · 8N1 · Điều khiển half-duplex</text>
+  <rect x="40" y="126" width="232" height="112" rx="14" fill="#eaf2ff" stroke="#bccbdd"/>
+  <text class="label" x="156.0" y="157" text-anchor="middle">PC</text>
+  <text class="note" x="156.0" y="185" text-anchor="middle">CLI Python</text>
+  <text class="note" x="156.0" y="207" text-anchor="middle">Tạo khung và CRC</text>
+  <path class="edge" d="M272 182h20" marker-end="url(#arrow)"/>
+  <rect x="296" y="126" width="232" height="112" rx="14" fill="#f0ecfb" stroke="#bccbdd"/>
+  <text class="label" x="412.0" y="157" text-anchor="middle">Bus RS485</text>
+  <text class="note" x="412.0" y="185" text-anchor="middle">Adapter USB–RS485</text>
+  <text class="note" x="412.0" y="207" text-anchor="middle">Cặp dây A/B</text>
+  <path class="edge" d="M528 182h20" marker-end="url(#arrow)"/>
+  <rect x="552" y="126" width="232" height="112" rx="14" fill="#eaf6f2" stroke="#bccbdd"/>
+  <text class="label" x="668.0" y="157" text-anchor="middle">STM32</text>
+  <text class="note" x="668.0" y="185" text-anchor="middle">USART1 và parser</text>
+  <text class="note" x="668.0" y="207" text-anchor="middle">Kiểm tra CRC + node</text>
+  <path class="edge" d="M784 182h20" marker-end="url(#arrow)"/>
+  <rect x="808" y="126" width="232" height="112" rx="14" fill="#fff8e8" stroke="#bccbdd"/>
+  <text class="label" x="924.0" y="157" text-anchor="middle">Thiết bị</text>
+  <text class="note" x="924.0" y="185" text-anchor="middle">Cập nhật LED / PWM</text>
+  <text class="note" x="924.0" y="207" text-anchor="middle">Phản hồi ACK hoặc NACK</text>
+  <rect x="40" y="258" width="1000" height="42" rx="14" fill="#eaf6f2" stroke="#bccbdd"/>
+  <text class="note" x="58" y="285" text-anchor="start">Gửi từng lệnh và chờ phản hồi trước khi gửi lệnh tiếp theo.</text>
+
+</svg>

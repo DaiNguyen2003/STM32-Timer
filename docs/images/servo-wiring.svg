@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="427" viewBox="0 0 1080 427" role="img" aria-labelledby="title desc">
+  <title id="title">Điều khiển servo bằng TIM2</title>
+  <desc id="desc">PA0 / TIM2_CH1 – Dây tín hiệu PWM: Tín hiệu điều khiển; GND STM32 và nguồn – GND servo: Mass chung; Nguồn servo riêng – V+ servo: Theo điện áp và dòng servo</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#52657f"/>
+    </marker>
+    <style>
+      text { font-family: 'Segoe UI', Arial, sans-serif; fill: #182c47; }
+      .title { font-size: 36px; font-weight: 700; }
+      .heading { font-size: 22px; font-weight: 700; }
+      .label { font-size: 18px; font-weight: 700; }
+      .note { font-size: 16px; fill: #435a73; }
+      .edge { fill: none; stroke: #52657f; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect width="1080" height="427" rx="24" fill="#f7f9fc"/>
+  <rect x="40" y="34" width="5" height="57" rx="2.5" fill="#245cae"/>
+  <text class="title" x="62" y="58">Điều khiển servo bằng TIM2</text>
+  <text class="note" x="63" y="87">STM32F103C8T6 · TIM2_CH1 trên PA0 · PWM 50 Hz</text>
+  <rect x="40" y="112" width="320" height="232" rx="14" fill="#eaf2ff" stroke="#bccbdd"/>
+  <rect x="720" y="112" width="320" height="232" rx="14" fill="#f0ecfb" stroke="#bccbdd"/>
+  <text class="heading" x="62" y="148" text-anchor="start">STM32 / nguồn riêng</text>
+  <text class="heading" x="742" y="148" text-anchor="start">Servo</text>
+  <path d="M40 164H360M720 164H1040" stroke="#bccbdd"/>
+  <path class="edge" d="M360 193H720" marker-end="url(#arrow)"/>
+  <text class="note" x="540" y="183" text-anchor="middle">Tín hiệu điều khiển</text>
+  <text class="label" x="340" y="199" text-anchor="end">PA0 / TIM2_CH1</text>
+  <text class="label" x="740" y="199" text-anchor="start">Dây tín hiệu PWM</text>
+  <path class="edge" d="M360 245H720"/>
+  <text class="note" x="540" y="235" text-anchor="middle">Mass chung</text>
+  <text class="label" x="340" y="251" text-anchor="end">GND STM32 và nguồn</text>
+  <text class="label" x="740" y="251" text-anchor="start">GND servo</text>
+  <path class="edge" d="M360 297H720" marker-end="url(#arrow)"/>
+  <text class="note" x="540" y="287" text-anchor="middle">Theo điện áp và dòng servo</text>
+  <text class="label" x="340" y="303" text-anchor="end">Nguồn servo riêng</text>
+  <text class="label" x="740" y="303" text-anchor="start">V+ servo</text>
+  <rect x="40" y="361" width="1000" height="42" rx="14" fill="#eaf6f2" stroke="#bccbdd"/>
+  <text class="note" x="58" y="388" text-anchor="start">Bắt đầu ở 1500 µs. Kiểm tra hành trình trước khi thử các xung gần giới hạn.</text>
+
+</svg>

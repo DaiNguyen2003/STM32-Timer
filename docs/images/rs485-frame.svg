@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="326" viewBox="0 0 1080 326" role="img" aria-labelledby="title desc">
+  <title id="title">Cấu trúc khung ứng dụng RS485</title>
+  <desc id="desc">SOF: 0xAA, 1 byte; ID: Địa chỉ, 1 byte; CMD: Mã lệnh, 1 byte; LEN: Số byte DATA, 1 byte; DATA: Payload, 0–255 byte; CRC: ID đến DATA, 1 byte</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#52657f"/>
+    </marker>
+    <style>
+      text { font-family: 'Segoe UI', Arial, sans-serif; fill: #182c47; }
+      .title { font-size: 36px; font-weight: 700; }
+      .heading { font-size: 22px; font-weight: 700; }
+      .label { font-size: 18px; font-weight: 700; }
+      .note { font-size: 16px; fill: #435a73; }
+      .edge { fill: none; stroke: #52657f; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect width="1080" height="326" rx="24" fill="#f7f9fc"/>
+  <rect x="40" y="34" width="5" height="57" rx="2.5" fill="#245cae"/>
+  <text class="title" x="62" y="58">Cấu trúc khung ứng dụng RS485</text>
+  <text class="note" x="63" y="87">CRC-8 · Polynomial 0x07 · Giá trị khởi tạo 0x00</text>
+  <rect x="40" y="126" width="146" height="112" rx="14" fill="#eaf2ff" stroke="#bccbdd"/>
+  <text class="label" x="113.0" y="157" text-anchor="middle">SOF</text>
+  <text class="note" x="113.0" y="185" text-anchor="middle">0xAA</text>
+  <text class="note" x="113.0" y="207" text-anchor="middle">1 byte</text>
+  <path class="edge" d="M186 182h20" marker-end="url(#arrow)"/>
+  <rect x="210" y="126" width="146" height="112" rx="14" fill="#f0ecfb" stroke="#bccbdd"/>
+  <text class="label" x="283.0" y="157" text-anchor="middle">ID</text>
+  <text class="note" x="283.0" y="185" text-anchor="middle">Địa chỉ</text>
+  <text class="note" x="283.0" y="207" text-anchor="middle">1 byte</text>
+  <path class="edge" d="M356 182h20" marker-end="url(#arrow)"/>
+  <rect x="380" y="126" width="146" height="112" rx="14" fill="#eaf6f2" stroke="#bccbdd"/>
+  <text class="label" x="453.0" y="157" text-anchor="middle">CMD</text>
+  <text class="note" x="453.0" y="185" text-anchor="middle">Mã lệnh</text>
+  <text class="note" x="453.0" y="207" text-anchor="middle">1 byte</text>
+  <path class="edge" d="M526 182h20" marker-end="url(#arrow)"/>
+  <rect x="550" y="126" width="146" height="112" rx="14" fill="#fff8e8" stroke="#bccbdd"/>
+  <text class="label" x="623.0" y="157" text-anchor="middle">LEN</text>
+  <text class="note" x="623.0" y="185" text-anchor="middle">Số byte DATA</text>
+  <text class="note" x="623.0" y="207" text-anchor="middle">1 byte</text>
+  <path class="edge" d="M696 182h20" marker-end="url(#arrow)"/>
+  <rect x="720" y="126" width="146" height="112" rx="14" fill="#eaf2ff" stroke="#bccbdd"/>
+  <text class="label" x="793.0" y="157" text-anchor="middle">DATA</text>
+  <text class="note" x="793.0" y="185" text-anchor="middle">Payload</text>
+  <text class="note" x="793.0" y="207" text-anchor="middle">0–255 byte</text>
+  <path class="edge" d="M866 182h20" marker-end="url(#arrow)"/>
+  <rect x="890" y="126" width="146" height="112" rx="14" fill="#f0ecfb" stroke="#bccbdd"/>
+  <text class="label" x="963.0" y="157" text-anchor="middle">CRC</text>
+  <text class="note" x="963.0" y="185" text-anchor="middle">ID đến DATA</text>
+  <text class="note" x="963.0" y="207" text-anchor="middle">1 byte</text>
+  <rect x="40" y="258" width="1000" height="42" rx="14" fill="#eaf6f2" stroke="#bccbdd"/>
+  <text class="note" x="58" y="285" text-anchor="start">CRC bao gồm ID, CMD, LEN và DATA. SOF đứng ngoài vùng tính CRC.</text>
+
+</svg>
